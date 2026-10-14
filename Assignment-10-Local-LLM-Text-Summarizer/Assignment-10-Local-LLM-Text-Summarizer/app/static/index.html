@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local LLM Text Summarizer</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">📝</span>
+      <div>
+        <h1>Local LLM Text Summarizer</h1>
+        <p class="subtitle">TinyLlama &middot; Ollama &middot; FastAPI &mdash; everything runs on your machine</p>
+      </div>
+    </div>
+    <button id="status" class="status status--checking" type="button" title="Click to re-check">
+      <span class="status__dot"></span><span id="status-text">Checking Ollama…</span>
+    </button>
+  </header>
+
+  <main class="layout">
+    <section class="card" aria-labelledby="input-title">
+      <div class="card__header">
+        <h2 id="input-title">Your text</h2>
+        <button id="sample-btn" class="btn btn--ghost btn--small" type="button">Try a sample</button>
+      </div>
+
+      <form id="form" novalidate>
+        <label for="text" class="visually-hidden">Text to summarize</label>
+        <textarea id="text" name="text" rows="14" spellcheck="true"
+          placeholder="Paste an article, report, email or any text you want summarized…"></textarea>
+
+        <div class="meta">
+          <span id="counter" class="counter">0 words &middot; 0 / 12,000 characters</span>
+          <span id="hint" class="hint" aria-live="polite"></span>
+        </div>
+
+        <div class="options">
+          <fieldset class="segmented">
+            <legend>Length</legend>
+            <input type="radio" id="len-short" name="length" value="short"><label for="len-short">Short</label>
+            <input type="radio" id="len-medium" name="length" value="medium" checked><label for="len-medium">Medium</label>
+            <input type="radio" id="len-long" name="length" value="long"><label for="len-long">Long</label>
+          </fieldset>
+          <fieldset class="segmented">
+            <legend>Format</legend>
+            <input type="radio" id="fmt-paragraph" name="format" value="paragraph" checked><label for="fmt-paragraph">Paragraph</label>
+            <input type="radio" id="fmt-bullets" name="format" value="bullets"><label for="fmt-bullets">Bullet points</label>
+          </fieldset>
+        </div>
+
+        <div class="actions">
+          <button id="clear-btn" class="btn btn--ghost" type="button">Clear</button>
+          <button id="submit-btn" class="btn btn--primary" type="submit" disabled>
+            <span class="spinner" aria-hidden="true"></span>
+            <span class="btn__label">Summarize</span>
+          </button>
+        </div>
+        <p class="shortcut">Tip: press <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>Enter</kbd> to summarize.</p>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="output-title" aria-live="polite">
+      <div class="card__header">
+        <h2 id="output-title">Summary</h2>
+        <button id="copy-btn" class="btn btn--ghost btn--small" type="button" hidden>Copy</button>
+      </div>
+
+      <div id="empty" class="state state--empty">
+        <div class="state__icon" aria-hidden="true">✨</div>
+        <p>Your summary will appear here.</p>
+        <p class="muted">Paste at least <span id="min-words">30</span> words of text and press <strong>Summarize</strong>.</p>
+      </div>
+
+      <div id="loading" class="state state--loading" hidden>
+        <div class="loader" aria-hidden="true"><span></span><span></span><span></span></div>
+        <p><strong>TinyLlama is reading your text…</strong></p>
+        <p class="muted">Elapsed: <span id="elapsed">0.0</span>s</p>
+        <button id="cancel-btn" class="btn btn--ghost btn--small" type="button">Cancel</button>
+      </div>
+
+      <div id="error" class="alert" role="alert" hidden>
+        <div class="alert__icon" aria-hidden="true">!</div>
+        <div>
+          <p class="alert__title" id="error-title">Something went wrong</p>
+          <p class="alert__message" id="error-message"></p>
+        </div>
+      </div>
+
+      <div id="result" hidden>
+        <div id="summary" class="summary"></div>
+        <ul class="stats" id="stats"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Runs 100% locally &middot; <a href="/docs" target="_blank" rel="noopener">API docs</a> &middot; EMEA AI Cohort 1 &mdash; Assignment 10
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

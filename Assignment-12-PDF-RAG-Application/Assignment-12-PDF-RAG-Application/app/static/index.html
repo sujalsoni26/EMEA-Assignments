@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF RAG Assistant</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔎</text></svg>">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">🔎</span>
+      <div>
+        <h1>PDF RAG Assistant</h1>
+        <p class="subtitle">Ask questions about your PDFs &middot; FAISS + nomic-embed-text + Llama 3 (Ollama) &middot; fully local</p>
+      </div>
+    </div>
+    <button id="status" class="status status--checking" type="button" title="Click to re-check">
+      <span class="status__dot"></span><span id="status-text">Checking Ollama…</span>
+    </button>
+  </header>
+
+  <main class="layout">
+    <aside class="card sidebar" aria-labelledby="kb-title">
+      <div class="card__header">
+        <h2 id="kb-title">Knowledge base</h2>
+        <button id="clear-btn" class="link-btn" type="button" hidden>Clear all</button>
+      </div>
+
+      <label id="dropzone" class="dropzone" for="file-input">
+        <input id="file-input" type="file" accept="application/pdf,.pdf" multiple hidden>
+        <span class="dropzone__icon" aria-hidden="true">⬆</span>
+        <span class="dropzone__title">Drop PDFs here or <u>browse</u></span>
+        <span class="dropzone__hint" id="limits-hint">One or more PDF files &middot; up to 25 MB each</span>
+      </label>
+
+      <div id="upload-status" class="upload-status" aria-live="polite"></div>
+
+      <ul id="doc-list" class="doc-list"></ul>
+      <p id="doc-empty" class="muted center">No documents yet. Upload a PDF to start.</p>
+      <p id="kb-stats" class="kb-stats"></p>
+    </aside>
+
+    <section class="card chat" aria-labelledby="chat-title">
+      <h2 id="chat-title" class="visually-hidden">Questions and answers</h2>
+      <div id="messages" class="messages" aria-live="polite">
+        <div id="welcome" class="welcome">
+          <div class="welcome__icon" aria-hidden="true">💬</div>
+          <p><strong>Ask anything about your documents</strong></p>
+          <p class="muted">Each answer is generated only from the most relevant passages and cites its sources.
+            If the documents don't cover a question, the assistant says so instead of guessing.</p>
+          <div class="examples" id="examples"></div>
+        </div>
+      </div>
+
+      <form id="ask-form" class="composer" novalidate>
+        <label for="question" class="visually-hidden">Your question</label>
+        <textarea id="question" rows="1" maxlength="1000" placeholder="Ask a question about your PDFs…"></textarea>
+        <div class="composer__row">
+          <label class="topk">Passages to retrieve
+            <input id="top-k" type="range" min="1" max="10" value="4">
+            <output id="top-k-value">4</output>
+          </label>
+          <button id="ask-btn" class="btn btn--primary" type="submit" disabled>
+            <span class="spinner" aria-hidden="true"></span><span class="btn__label">Ask</span>
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Runs 100% locally &middot; <a href="/docs" target="_blank" rel="noopener">API docs</a> &middot; EMEA AI Cohort 1 &mdash; Assignment 12
+  </footer>
+
+  <template id="answer-template">
+    <article class="msg msg--answer">
+      <div class="answer__body"></div>
+      <div class="answer__meta"></div>
+      <details class="sources">
+        <summary></summary>
+        <ol class="sources__list"></ol>
+      </details>
+    </article>
+  </template>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

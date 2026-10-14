@@ -1,0 +1,348 @@
+{
+  "top_k": 4,
+  "min_similarity": 0.55,
+  "llm": "llama3",
+  "embedding_model": "nomic-embed-text",
+  "rows": [
+    {
+      "question": "How many days of paid annual leave do full-time employees get?",
+      "answerable": true,
+      "top_score": 0.874,
+      "retrieved": [
+        "northwind_employee_handbook.pdf p.1 (0.87)",
+        "northwind_employee_handbook.pdf p.2 (0.74)",
+        "northwind_employee_handbook.pdf p.1 (0.73)",
+        "northwind_employee_handbook.pdf p.2 (0.64)"
+      ],
+      "expected": "northwind_employee_handbook.pdf p.1",
+      "hit": true,
+      "status": "answered",
+      "answer": "According to [1], full-time employees receive 25 days of paid annual leave per year.",
+      "correct": true
+    },
+    {
+      "question": "What are the core working hours at Northwind Labs?",
+      "answerable": true,
+      "top_score": 0.831,
+      "retrieved": [
+        "northwind_employee_handbook.pdf p.1 (0.83)",
+        "northwind_employee_handbook.pdf p.1 (0.73)",
+        "aquapure_x2_user_manual.pdf p.3 (0.72)",
+        "northwind_employee_handbook.pdf p.2 (0.64)"
+      ],
+      "expected": "northwind_employee_handbook.pdf p.1",
+      "hit": true,
+      "status": "answered",
+      "answer": "According to [1], the core working hours at Northwind Labs are from 10:00 to 15:00 (local time) for meetings and collaboration.",
+      "correct": true
+    },
+    {
+      "question": "For how many days per year can I work remotely from another country?",
+      "answerable": true,
+      "top_score": 0.803,
+      "retrieved": [
+        "northwind_employee_handbook.pdf p.1 (0.80)",
+        "northwind_employee_handbook.pdf p.1 (0.70)",
+        "northwind_employee_handbook.pdf p.2 (0.67)",
+        "northwind_employee_handbook.pdf p.2 (0.65)"
+      ],
+      "expected": "northwind_employee_handbook.pdf p.1",
+      "hit": true,
+      "status": "answered",
+      "answer": "According to [1], you can work remotely from another country for up to 20 working days per calendar year.",
+      "correct": true
+    },
+    {
+      "question": "What is the maximum hotel cost per night in London?",
+      "answerable": true,
+      "top_score": 0.715,
+      "retrieved": [
+        "northwind_employee_handbook.pdf p.2 (0.71)",
+        "northwind_employee_handbook.pdf p.1 (0.51)",
+        "northwind_employee_handbook.pdf p.1 (0.47)",
+        "northwind_employee_handbook.pdf p.2 (0.46)"
+      ],
+      "expected": "northwind_employee_handbook.pdf p.2",
+      "hit": true,
+      "status": "answered",
+      "answer": "According to [1], the maximum hotel cost per night in London is EUR 220.",
+      "correct": true
+    },
+    {
+      "question": "How much is the yearly learning budget?",
+      "answerable": true,
+      "top_score": 0.594,
+      "retrieved": [
+        "northwind_employee_handbook.pdf p.2 (0.59)",
+        "northwind_employee_handbook.pdf p.2 (0.57)",
+        "northwind_employee_handbook.pdf p.1 (0.55)",
+        "NIST_AI_RMF_1.0.pdf p.44 (0.46)"
+      ],
+      "expected": "northwind_employee_handbook.pdf p.2",
+      "hit": true,
+      "status": "answered",
+      "answer": "According to [1], each employee has a personal learning budget of EUR 1,500 per calendar year, which can be used for courses, certifications, books and conferences related to their role.",
+      "correct": true
+    },
+    {
+      "question": "How long is the partner's paid parental leave?",
+      "answerable": true,
+      "top_score": 0.78,
+      "retrieved": [
+        "northwind_employee_handbook.pdf p.2 (0.78)",
+        "northwind_employee_handbook.pdf p.1 (0.70)",
+        "northwind_employee_handbook.pdf p.1 (0.62)",
+        "northwind_employee_handbook.pdf p.2 (0.56)"
+      ],
+      "expected": "northwind_employee_handbook.pdf p.2",
+      "hit": true,
+      "status": "answered",
+      "answer": "According to [1], the partner of the birth parent, including adoptive parents and same-sex partners, receives 6 weeks of fully paid leave, which can be taken at any time during the first year after the birth or adoption.",
+      "correct": true
+    },
+    {
+      "question": "What is the notice period after two years of employment?",
+      "answerable": true,
+      "top_score": 0.696,
+      "retrieved": [
+        "northwind_employee_handbook.pdf p.1 (0.70)",
+        "northwind_employee_handbook.pdf p.2 (0.68)",
+        "northwind_employee_handbook.pdf p.2 (0.66)",
+        "aquapure_x2_user_manual.pdf p.2 (0.55)"
+      ],
+      "expected": "northwind_employee_handbook.pdf p.2",
+      "hit": true,
+      "status": "answered",
+      "answer": "According to [10], after the first two years of employment, the notice period is two months.",
+      "correct": true
+    },
+    {
+      "question": "How often should the RO membrane of the AquaPure X2 be replaced?",
+      "answerable": true,
+      "top_score": 0.75,
+      "retrieved": [
+        "aquapure_x2_user_manual.pdf p.2 (0.75)",
+        "aquapure_x2_user_manual.pdf p.1 (0.71)",
+        "aquapure_x2_user_manual.pdf p.2 (0.67)",
+        "aquapure_x2_user_manual.pdf p.2 (0.68)"
+      ],
+      "expected": "aquapure_x2_user_manual.pdf p.2",
+      "hit": true,
+      "status": "answered",
+      "answer": "According to [3], the RO membrane should be replaced every 24 months.",
+      "correct": true
+    },
+    {
+      "question": "What does error code E2 mean on the purifier?",
+      "answerable": true,
+      "top_score": 0.657,
+      "retrieved": [
+        "aquapure_x2_user_manual.pdf p.2 (0.66)",
+        "aquapure_x2_user_manual.pdf p.1 (0.66)",
+        "northwind_employee_handbook.pdf p.3 (0.54)",
+        "aquapure_x2_user_manual.pdf p.2 (0.64)"
+      ],
+      "expected": "aquapure_x2_user_manual.pdf p.2",
+      "hit": true,
+      "status": "answered",
+      "answer": "Error code E2 on the purifier means \"Leak detected. Unplug the purifier, dry the leak sensor under the unit and check all hose connections.\" [1]",
+      "correct": true
+    },
+    {
+      "question": "What does E2 mean and what should I do?",
+      "answerable": true,
+      "top_score": 0.576,
+      "retrieved": [
+        "NIST_AI_RMF_1.0.pdf p.14 (0.58)",
+        "aquapure_x2_user_manual.pdf p.2 (0.53)",
+        "NIST_AI_RMF_1.0.pdf p.15 (0.58)",
+        "NIST_AI_RMF_1.0.pdf p.30 (0.57)"
+      ],
+      "expected": "aquapure_x2_user_manual.pdf p.2",
+      "hit": true,
+      "status": "answered",
+      "answer": "According to [2], Error E2 means \"Leak detected\". To resolve this issue, you should \"Unplug the purifier, dry the leak sensor under the unit and check all hose connections\".",
+      "correct": true
+    },
+    {
+      "question": "What is the part number of the RO membrane?",
+      "answerable": true,
+      "top_score": 0.556,
+      "retrieved": [
+        "aquapure_x2_user_manual.pdf p.2 (0.56)",
+        "aquapure_x2_user_manual.pdf p.1 (0.50)",
+        "NIST_AI_RMF_1.0.pdf p.3 (0.49)",
+        "NIST_AI_RMF_1.0.pdf p.14 (0.52)"
+      ],
+      "expected": "aquapure_x2_user_manual.pdf p.2",
+      "hit": true,
+      "status": "answered",
+      "answer": "According to [1], the part number of the RO membrane is AP-RO2.",
+      "correct": true
+    },
+    {
+      "question": "How do I reset the filter timer after replacing a filter?",
+      "answerable": true,
+      "top_score": 0.747,
+      "retrieved": [
+        "aquapure_x2_user_manual.pdf p.2 (0.75)",
+        "aquapure_x2_user_manual.pdf p.1 (0.67)",
+        "aquapure_x2_user_manual.pdf p.2 (0.62)",
+        "aquapure_x2_user_manual.pdf p.1 (0.53)"
+      ],
+      "expected": "aquapure_x2_user_manual.pdf p.2",
+      "hit": true,
+      "status": "answered",
+      "answer": "To reset the filter timer after replacing a filter, you need to press and hold the FILTER button for 5 seconds until the indicator turns blue [1].",
+      "correct": true
+    },
+    {
+      "question": "How long is the warranty if I register the purifier?",
+      "answerable": true,
+      "top_score": 0.73,
+      "retrieved": [
+        "aquapure_x2_user_manual.pdf p.2 (0.73)",
+        "aquapure_x2_user_manual.pdf p.2 (0.71)",
+        "aquapure_x2_user_manual.pdf p.1 (0.67)",
+        "aquapure_x2_user_manual.pdf p.1 (0.62)"
+      ],
+      "expected": "aquapure_x2_user_manual.pdf p.2",
+      "hit": true,
+      "status": "answered",
+      "answer": "According to [1], the warranty is extended to 5 years when you register the product within 60 days of purchase.",
+      "correct": true
+    },
+    {
+      "question": "What is the tank capacity of the AquaPure X2?",
+      "answerable": true,
+      "top_score": 0.74,
+      "retrieved": [
+        "aquapure_x2_user_manual.pdf p.1 (0.74)",
+        "aquapure_x2_user_manual.pdf p.2 (0.71)",
+        "aquapure_x2_user_manual.pdf p.2 (0.63)",
+        "aquapure_x2_user_manual.pdf p.2 (0.52)"
+      ],
+      "expected": "aquapure_x2_user_manual.pdf p.1",
+      "hit": true,
+      "status": "answered",
+      "answer": "According to [1], the tank capacity of the AquaPure X2 is 6 litres.",
+      "correct": true
+    },
+    {
+      "question": "What are the four functions of the AI RMF Core?",
+      "answerable": true,
+      "top_score": 0.851,
+      "retrieved": [
+        "NIST_AI_RMF_1.0.pdf p.25 (0.85)",
+        "NIST_AI_RMF_1.0.pdf p.26 (0.76)",
+        "NIST_AI_RMF_1.0.pdf p.25 (0.76)",
+        "NIST_AI_RMF_1.0.pdf p.8 (0.74)"
+      ],
+      "expected": "NIST_AI_RMF_1.0.pdf p.5, 8, 25, 39",
+      "hit": true,
+      "status": "answered",
+      "answer": "The four functions of the AI RMF Core are: GOVERN, MAP, MEASURE, and MANAGE. [1]",
+      "correct": true
+    },
+    {
+      "question": "Which characteristics make an AI system trustworthy according to the AI RMF?",
+      "answerable": true,
+      "top_score": 0.847,
+      "retrieved": [
+        "NIST_AI_RMF_1.0.pdf p.17 (0.85)",
+        "NIST_AI_RMF_1.0.pdf p.17 (0.84)",
+        "NIST_AI_RMF_1.0.pdf p.7 (0.81)",
+        "NIST_AI_RMF_1.0.pdf p.5 (0.81)"
+      ],
+      "expected": "NIST_AI_RMF_1.0.pdf p.8, 17",
+      "hit": true,
+      "status": "answered",
+      "answer": "According to the AI RMF, the characteristics that make an AI system trustworthy are:\n\n* Valid and reliable [1]\n* Safe [1]\n* Secure and resilient [1]\n* Accountable and transparent [1]\n* Explainable and interpretable [1]\n* Privacy-enhanced [1]\n* Fair with harmful bias managed [1]\n\nThese characteristics are mentioned in [1] as the characteristics of trustworthy AI systems.",
+      "correct": true
+    },
+    {
+      "question": "What is the capital of Australia?",
+      "answerable": false,
+      "top_score": 0.515,
+      "retrieved": [
+        "NIST_AI_RMF_1.0.pdf p.14 (0.52)",
+        "northwind_employee_handbook.pdf p.2 (0.50)",
+        "NIST_AI_RMF_1.0.pdf p.15 (0.49)",
+        "NIST_AI_RMF_1.0.pdf p.7 (0.49)"
+      ],
+      "status": "insufficient_context",
+      "answer": "I could not find enough information in the uploaded documents to answer this question. Try rephrasing it, or upload a document that covers this topic.",
+      "correct": true
+    },
+    {
+      "question": "Who won the 2022 FIFA World Cup?",
+      "answerable": false,
+      "top_score": 0.513,
+      "retrieved": [
+        "NIST_AI_RMF_1.0.pdf p.7 (0.47)",
+        "NIST_AI_RMF_1.0.pdf p.15 (0.49)",
+        "NIST_AI_RMF_1.0.pdf p.14 (0.51)",
+        "NIST_AI_RMF_1.0.pdf p.11 (0.39)"
+      ],
+      "status": "insufficient_context",
+      "answer": "I could not find enough information in the uploaded documents to answer this question. Try rephrasing it, or upload a document that covers this topic.",
+      "correct": true
+    },
+    {
+      "question": "How much does the AquaPure X2 cost?",
+      "answerable": false,
+      "top_score": 0.724,
+      "retrieved": [
+        "aquapure_x2_user_manual.pdf p.2 (0.72)",
+        "aquapure_x2_user_manual.pdf p.1 (0.72)",
+        "aquapure_x2_user_manual.pdf p.2 (0.59)",
+        "NIST_AI_RMF_1.0.pdf p.12 (0.31)"
+      ],
+      "status": "insufficient_context",
+      "answer": "I could not find enough information in the uploaded documents to answer this question. Try rephrasing it, or upload a document that covers this topic.",
+      "correct": true
+    },
+    {
+      "question": "What is the dress code at Northwind Labs?",
+      "answerable": false,
+      "top_score": 0.719,
+      "retrieved": [
+        "northwind_employee_handbook.pdf p.1 (0.72)",
+        "northwind_employee_handbook.pdf p.3 (0.64)",
+        "aquapure_x2_user_manual.pdf p.3 (0.68)",
+        "northwind_employee_handbook.pdf p.1 (0.62)"
+      ],
+      "status": "insufficient_context",
+      "answer": "I could not find enough information in the uploaded documents to answer this question. Try rephrasing it, or upload a document that covers this topic.",
+      "correct": true
+    },
+    {
+      "question": "How do I bake sourdough bread?",
+      "answerable": false,
+      "top_score": 0.522,
+      "retrieved": [
+        "aquapure_x2_user_manual.pdf p.1 (0.52)",
+        "northwind_employee_handbook.pdf p.1 (0.49)",
+        "aquapure_x2_user_manual.pdf p.2 (0.47)",
+        "aquapure_x2_user_manual.pdf p.2 (0.45)"
+      ],
+      "status": "insufficient_context",
+      "answer": "I could not find enough information in the uploaded documents to answer this question. Try rephrasing it, or upload a document that covers this topic.",
+      "correct": true
+    },
+    {
+      "question": "What was Northwind Labs' revenue in 2025?",
+      "answerable": false,
+      "top_score": 0.727,
+      "retrieved": [
+        "northwind_employee_handbook.pdf p.1 (0.73)",
+        "aquapure_x2_user_manual.pdf p.3 (0.71)",
+        "northwind_employee_handbook.pdf p.3 (0.59)",
+        "northwind_employee_handbook.pdf p.1 (0.65)"
+      ],
+      "status": "insufficient_context",
+      "answer": "I could not find enough information in the uploaded documents to answer this question. Try rephrasing it, or upload a document that covers this topic.",
+      "correct": true
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Summarization Agent</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">📄</span>
+      <div>
+        <h1>PDF Summarization Agent</h1>
+        <p class="subtitle">Llama 3 &middot; Ollama &middot; FastAPI &mdash; your documents never leave this machine</p>
+      </div>
+    </div>
+    <button id="status" class="status status--checking" type="button" title="Click to re-check">
+      <span class="status__dot"></span><span id="status-text">Checking Ollama…</span>
+    </button>
+  </header>
+
+  <main class="layout">
+    <aside class="column">
+      <section class="card" aria-labelledby="upload-title">
+        <h2 id="upload-title">1. Upload a PDF</h2>
+        <form id="form" novalidate>
+          <label id="dropzone" class="dropzone" for="file-input">
+            <input id="file-input" type="file" accept="application/pdf,.pdf" hidden>
+            <span class="dropzone__icon" aria-hidden="true">⬆</span>
+            <span class="dropzone__title">Drop a PDF here or <u>browse</u></span>
+            <span class="dropzone__hint" id="limits-hint">PDF only &middot; up to 20 MB &middot; text-based (not scanned)</span>
+          </label>
+
+          <div id="file-card" class="file-card" hidden>
+            <span class="file-card__icon" aria-hidden="true">PDF</span>
+            <div class="file-card__info">
+              <span id="file-name" class="file-card__name"></span>
+              <span id="file-size" class="file-card__size"></span>
+            </div>
+            <button id="remove-file" class="icon-btn" type="button" aria-label="Remove file">✕</button>
+          </div>
+
+          <p id="file-error" class="field-error" role="alert" hidden></p>
+
+          <fieldset class="segmented">
+            <legend>Summary length</legend>
+            <input type="radio" id="len-brief" name="length" value="brief"><label for="len-brief">Brief</label>
+            <input type="radio" id="len-standard" name="length" value="standard" checked><label for="len-standard">Standard</label>
+            <input type="radio" id="len-detailed" name="length" value="detailed"><label for="len-detailed">Detailed</label>
+          </fieldset>
+
+          <button id="submit-btn" class="btn btn--primary btn--block" type="submit" disabled>
+            <span class="spinner" aria-hidden="true"></span>
+            <span class="btn__label">Summarize PDF</span>
+          </button>
+        </form>
+      </section>
+
+      <section id="progress-card" class="card" aria-labelledby="progress-title" hidden>
+        <div class="card__header">
+          <h2 id="progress-title">2. Agent progress</h2>
+          <span class="elapsed" id="elapsed">0.0s</span>
+        </div>
+        <ol class="steps" id="steps">
+          <li data-step="extract"><span class="step__icon"></span><div><strong>Validate &amp; extract text</strong><small></small></div></li>
+          <li data-step="plan"><span class="step__icon"></span><div><strong>Analyse &amp; plan strategy</strong><small></small></div></li>
+          <li data-step="map"><span class="step__icon"></span><div><strong>Summarise sections</strong><small></small>
+            <div class="bar" hidden><span></span></div></div></li>
+          <li data-step="write"><span class="step__icon"></span><div><strong>Write final summary</strong><small></small></div></li>
+        </ol>
+        <button id="cancel-btn" class="btn btn--ghost btn--small" type="button">Cancel</button>
+      </section>
+    </aside>
+
+    <section class="card result-card" aria-labelledby="result-heading" aria-live="polite">
+      <div id="empty" class="state">
+        <div class="state__icon" aria-hidden="true">🗂️</div>
+        <p><strong id="result-heading">Your summary will appear here</strong></p>
+        <p class="muted">Upload a PDF report, article or paper. Long documents are split into sections,
+          summarised one by one, and then combined (map-reduce).</p>
+      </div>
+
+      <div id="error" class="alert" role="alert" hidden>
+        <div class="alert__icon" aria-hidden="true">!</div>
+        <div>
+          <p class="alert__title" id="error-title">Something went wrong</p>
+          <p class="alert__message" id="error-message"></p>
+        </div>
+      </div>
+
+      <article id="result" hidden>
+        <header class="result__header">
+          <div>
+            <p class="eyebrow" id="result-file"></p>
+            <h2 class="result__title" id="result-title"></h2>
+          </div>
+          <div class="result__actions">
+            <button id="copy-btn" class="btn btn--ghost btn--small" type="button">Copy</button>
+            <button id="download-btn" class="btn btn--ghost btn--small" type="button">Download .md</button>
+          </div>
+        </header>
+        <ul class="chips" id="result-stats"></ul>
+
+        <div class="tldr">
+          <span class="tldr__label">TL;DR</span>
+          <p id="result-tldr"></p>
+        </div>
+
+        <h3>Summary</h3>
+        <div id="result-summary" class="prose"></div>
+
+        <h3>Key points</h3>
+        <ol id="result-points" class="points"></ol>
+
+        <div id="sections-block" hidden>
+          <h3>Section-by-section notes</h3>
+          <p class="muted">Notes the agent took on each part of the document before writing the final summary.</p>
+          <div id="result-sections"></div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Runs 100% locally &middot; <a href="/docs" target="_blank" rel="noopener">API docs</a> &middot; EMEA AI Cohort 1 &mdash; Assignment 11
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

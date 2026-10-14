@@ -1,0 +1,9 @@
+fastapi==0.143.1
+uvicorn[standard]==0.54.0
+python-multipart==0.0.32
+httpx==0.28.1
+pydantic==2.14.1
+pymupdf==1.28.2
+numpy==2.4.6
+faiss-cpu==1.15.1
+pytest==9.1.1
