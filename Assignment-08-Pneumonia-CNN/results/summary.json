@@ -1,0 +1,47 @@
+{
+  "image_size": 160,
+  "trainable_params": 1159393,
+  "epochs_trained": 23,
+  "best_epoch": 15,
+  "training_minutes": 36.6,
+  "class_weight": {
+    "NORMAL": 1.939,
+    "PNEUMONIA": 0.674
+  },
+  "split_sizes": {
+    "train": 4484,
+    "val": 748,
+    "test": 624
+  },
+  "youden_threshold": 0.613,
+  "test_metrics": {
+    "threshold 0.50": {
+      "threshold": 0.5,
+      "Accuracy": 0.8429,
+      "Recall (sensitivity)": 0.9923,
+      "Specificity": 0.594,
+      "Precision": 0.8029,
+      "F1": 0.8876,
+      "ROC-AUC": 0.9583,
+      "PR-AUC": 0.9686,
+      "TP": 387,
+      "FN": 3,
+      "TN": 139,
+      "FP": 95
+    },
+    "threshold 0.613 (Youden, from val)": {
+      "threshold": 0.6127,
+      "Accuracy": 0.867,
+      "Recall (sensitivity)": 0.9923,
+      "Specificity": 0.6581,
+      "Precision": 0.8287,
+      "F1": 0.9032,
+      "ROC-AUC": 0.9583,
+      "PR-AUC": 0.9686,
+      "TP": 387,
+      "FN": 3,
+      "TN": 154,
+      "FP": 80
+    }
+  }
+}
