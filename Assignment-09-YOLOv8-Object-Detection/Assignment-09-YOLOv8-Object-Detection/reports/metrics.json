@@ -1,0 +1,200 @@
+{
+  "finetuned": {
+    "overall": {
+      "precision": 0.8137,
+      "recall": 0.6635,
+      "mAP50": 0.7507,
+      "mAP50-95": 0.5627
+    },
+    "per_class": {
+      "Person": {
+        "precision": 0.9175,
+        "recall": 0.5193,
+        "mAP50": 0.6881,
+        "mAP50-95": 0.4725
+      },
+      "Glasses": {
+        "precision": 0.913,
+        "recall": 0.544,
+        "mAP50": 0.6904,
+        "mAP50-95": 0.3633
+      },
+      "Mobile phone": {
+        "precision": 0.7172,
+        "recall": 0.8622,
+        "mAP50": 0.8589,
+        "mAP50-95": 0.7484
+      },
+      "Cup": {
+        "precision": 0.8711,
+        "recall": 0.7387,
+        "mAP50": 0.7803,
+        "mAP50-95": 0.6628
+      },
+      "Bottle": {
+        "precision": 0.7983,
+        "recall": 0.6596,
+        "mAP50": 0.7435,
+        "mAP50-95": 0.6003
+      },
+      "Laptop": {
+        "precision": 0.8366,
+        "recall": 0.7576,
+        "mAP50": 0.8341,
+        "mAP50-95": 0.6739
+      },
+      "Headphones": {
+        "precision": 0.755,
+        "recall": 0.5963,
+        "mAP50": 0.732,
+        "mAP50-95": 0.4643
+      },
+      "Watch": {
+        "precision": 0.701,
+        "recall": 0.6299,
+        "mAP50": 0.6781,
+        "mAP50-95": 0.5161
+      }
+    },
+    "speed_ms": {
+      "preprocess": 0.14,
+      "inference": 1.73,
+      "loss": 0.0,
+      "postprocess": 4.93
+    },
+    "save_dir": "/Users/ashu/Desktop/work/sujal/Assignment-09-YOLOv8-Object-Detection/runs/eval/finetuned-test"
+  },
+  "baseline_coco": {
+    "overall": {
+      "precision": 0.7297,
+      "recall": 0.6313,
+      "mAP50": 0.7015,
+      "mAP50-95": 0.5705
+    },
+    "per_class": {
+      "person": {
+        "precision": 0.7426,
+        "recall": 0.6332,
+        "mAP50": 0.7124,
+        "mAP50-95": 0.5351
+      },
+      "bottle": {
+        "precision": 0.751,
+        "recall": 0.5817,
+        "mAP50": 0.6959,
+        "mAP50-95": 0.5555
+      },
+      "cup": {
+        "precision": 0.592,
+        "recall": 0.5991,
+        "mAP50": 0.5794,
+        "mAP50-95": 0.4736
+      },
+      "laptop": {
+        "precision": 0.8684,
+        "recall": 0.664,
+        "mAP50": 0.7765,
+        "mAP50-95": 0.652
+      },
+      "cell phone": {
+        "precision": 0.6946,
+        "recall": 0.6786,
+        "mAP50": 0.7433,
+        "mAP50-95": 0.636
+      }
+    },
+    "speed_ms": {
+      "preprocess": 0.21,
+      "inference": 1.8,
+      "loss": 0.0,
+      "postprocess": 6.15
+    },
+    "save_dir": "/Users/ashu/Desktop/work/sujal/Assignment-09-YOLOv8-Object-Detection/runs/eval/coco-baseline-test"
+  },
+  "shared_classes": {
+    "Person": {
+      "baseline": {
+        "precision": 0.7426,
+        "recall": 0.6332,
+        "mAP50": 0.7124,
+        "mAP50-95": 0.5351
+      },
+      "finetuned": {
+        "precision": 0.9175,
+        "recall": 0.5193,
+        "mAP50": 0.6881,
+        "mAP50-95": 0.4725
+      }
+    },
+    "Mobile phone": {
+      "baseline": {
+        "precision": 0.6946,
+        "recall": 0.6786,
+        "mAP50": 0.7433,
+        "mAP50-95": 0.636
+      },
+      "finetuned": {
+        "precision": 0.7172,
+        "recall": 0.8622,
+        "mAP50": 0.8589,
+        "mAP50-95": 0.7484
+      }
+    },
+    "Cup": {
+      "baseline": {
+        "precision": 0.592,
+        "recall": 0.5991,
+        "mAP50": 0.5794,
+        "mAP50-95": 0.4736
+      },
+      "finetuned": {
+        "precision": 0.8711,
+        "recall": 0.7387,
+        "mAP50": 0.7803,
+        "mAP50-95": 0.6628
+      }
+    },
+    "Bottle": {
+      "baseline": {
+        "precision": 0.751,
+        "recall": 0.5817,
+        "mAP50": 0.6959,
+        "mAP50-95": 0.5555
+      },
+      "finetuned": {
+        "precision": 0.7983,
+        "recall": 0.6596,
+        "mAP50": 0.7435,
+        "mAP50-95": 0.6003
+      }
+    },
+    "Laptop": {
+      "baseline": {
+        "precision": 0.8684,
+        "recall": 0.664,
+        "mAP50": 0.7765,
+        "mAP50-95": 0.652
+      },
+      "finetuned": {
+        "precision": 0.8366,
+        "recall": 0.7576,
+        "mAP50": 0.8341,
+        "mAP50-95": 0.6739
+      }
+    }
+  },
+  "shared_summary": {
+    "baseline": {
+      "precision": 0.7297,
+      "recall": 0.6313,
+      "mAP50": 0.7015,
+      "mAP50-95": 0.5704
+    },
+    "finetuned": {
+      "precision": 0.8281,
+      "recall": 0.7075,
+      "mAP50": 0.781,
+      "mAP50-95": 0.6316
+    }
+  }
+}

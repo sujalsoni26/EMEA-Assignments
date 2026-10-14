@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOLOv8 Real-Time Object Detection</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">🎯</span>
+      <div>
+        <h1>YOLOv8 Real-Time Object Detection</h1>
+        <p class="subtitle">Ultralytics YOLOv8 &middot; FastAPI &middot; WebSocket streaming from your webcam</p>
+      </div>
+    </div>
+    <span id="conn" class="status"><span class="status__dot"></span><span id="conn-text">Connecting…</span></span>
+  </header>
+
+  <main class="layout">
+    <section class="card stage-card">
+      <div class="tabs" role="tablist">
+        <button class="tab active" role="tab" data-tab="webcam" aria-selected="true">Live webcam</button>
+        <button class="tab" role="tab" data-tab="upload" aria-selected="false">Upload an image</button>
+      </div>
+
+      <div id="panel-webcam" class="panel">
+        <div class="stage" id="webcam-stage">
+          <video id="video" playsinline muted></video>
+          <canvas id="overlay"></canvas>
+          <div id="webcam-placeholder" class="placeholder">
+            <div class="placeholder__icon" aria-hidden="true">📷</div>
+            <p><strong>Start the camera to detect objects in real time</strong></p>
+            <p class="muted">Frames are sent to the local FastAPI server; nothing leaves your machine.</p>
+          </div>
+        </div>
+        <div class="controls-row">
+          <button id="start-btn" class="btn btn--primary" type="button">Start camera</button>
+          <select id="camera-select" class="select" aria-label="Camera" hidden></select>
+          <button id="snapshot-btn" class="btn btn--ghost" type="button" disabled>Save snapshot</button>
+        </div>
+      </div>
+
+      <div id="panel-upload" class="panel" hidden>
+        <label class="dropzone" id="dropzone" for="image-input">
+          <input id="image-input" type="file" accept="image/*" hidden>
+          <span class="dropzone__title">Drop an image here or <u>browse</u></span>
+          <span class="muted">JPEG, PNG or WebP &middot; up to 10 MB</span>
+        </label>
+        <div class="stage stage--image" id="image-stage" hidden>
+          <canvas id="image-canvas"></canvas>
+        </div>
+      </div>
+
+      <div id="error" class="alert" role="alert" hidden></div>
+    </section>
+
+    <aside class="side">
+      <section class="card">
+        <h2>Settings</h2>
+        <label class="field">Model
+          <select id="model-select" class="select"></select>
+        </label>
+        <p id="model-desc" class="muted small"></p>
+        <label class="field">Confidence threshold <output id="conf-value">0.35</output>
+          <input id="conf" type="range" min="0.05" max="0.95" step="0.05" value="0.35">
+        </label>
+        <label class="field">IoU threshold (NMS) <output id="iou-value">0.50</output>
+          <input id="iou" type="range" min="0.1" max="0.9" step="0.05" value="0.5">
+        </label>
+        <label class="check"><input id="show-labels" type="checkbox" checked> Show labels and scores</label>
+      </section>
+
+      <section class="card">
+        <h2>Performance</h2>
+        <dl class="stats">
+          <div><dt>FPS</dt><dd id="stat-fps">–</dd></div>
+          <div><dt>Inference</dt><dd id="stat-inf">–</dd></div>
+          <div><dt>Round trip</dt><dd id="stat-rtt">–</dd></div>
+          <div><dt>Objects</dt><dd id="stat-count">–</dd></div>
+        </dl>
+        <p class="muted small" id="device-info"></p>
+      </section>
+
+      <section class="card">
+        <h2>Detections</h2>
+        <ul id="det-list" class="det-list"><li class="muted">No detections yet.</li></ul>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <a href="/docs" target="_blank" rel="noopener">API docs</a> &middot; EMEA AI Cohort 1 &mdash; Assignment 9
+  </footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>

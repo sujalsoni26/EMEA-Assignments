@@ -1,0 +1,162 @@
+{
+  "classes": {
+    "Person": [
+      "Person",
+      "Man",
+      "Woman",
+      "Boy",
+      "Girl"
+    ],
+    "Glasses": [
+      "Glasses"
+    ],
+    "Mobile phone": [
+      "Mobile phone"
+    ],
+    "Cup": [
+      "Coffee cup",
+      "Mug"
+    ],
+    "Bottle": [
+      "Bottle"
+    ],
+    "Laptop": [
+      "Laptop"
+    ],
+    "Headphones": [
+      "Headphones"
+    ],
+    "Watch": [
+      "Watch"
+    ]
+  },
+  "train": {
+    "images": 4011,
+    "download": {
+      "ok": 4011,
+      "cached": 0,
+      "rotated": 0,
+      "failed": 0
+    },
+    "per_class": {
+      "Person": {
+        "images": 1614,
+        "boxes": 4038
+      },
+      "Glasses": {
+        "images": 600,
+        "boxes": 793
+      },
+      "Mobile phone": {
+        "images": 615,
+        "boxes": 922
+      },
+      "Cup": {
+        "images": 614,
+        "boxes": 1085
+      },
+      "Bottle": {
+        "images": 607,
+        "boxes": 1841
+      },
+      "Laptop": {
+        "images": 605,
+        "boxes": 947
+      },
+      "Headphones": {
+        "images": 607,
+        "boxes": 722
+      },
+      "Watch": {
+        "images": 602,
+        "boxes": 837
+      }
+    }
+  },
+  "val": {
+    "images": 565,
+    "download": {
+      "ok": 565,
+      "cached": 0,
+      "rotated": 0,
+      "failed": 0
+    },
+    "per_class": {
+      "Person": {
+        "images": 185,
+        "boxes": 342
+      },
+      "Glasses": {
+        "images": 120,
+        "boxes": 138
+      },
+      "Mobile phone": {
+        "images": 99,
+        "boxes": 138
+      },
+      "Cup": {
+        "images": 120,
+        "boxes": 172
+      },
+      "Bottle": {
+        "images": 120,
+        "boxes": 202
+      },
+      "Laptop": {
+        "images": 46,
+        "boxes": 54
+      },
+      "Headphones": {
+        "images": 38,
+        "boxes": 39
+      },
+      "Watch": {
+        "images": 26,
+        "boxes": 28
+      }
+    }
+  },
+  "test": {
+    "images": 907,
+    "download": {
+      "ok": 907,
+      "cached": 0,
+      "rotated": 0,
+      "failed": 0
+    },
+    "per_class": {
+      "Person": {
+        "images": 293,
+        "boxes": 579
+      },
+      "Glasses": {
+        "images": 150,
+        "boxes": 182
+      },
+      "Mobile phone": {
+        "images": 150,
+        "boxes": 196
+      },
+      "Cup": {
+        "images": 150,
+        "boxes": 223
+      },
+      "Bottle": {
+        "images": 151,
+        "boxes": 306
+      },
+      "Laptop": {
+        "images": 150,
+        "boxes": 169
+      },
+      "Headphones": {
+        "images": 94,
+        "boxes": 109
+      },
+      "Watch": {
+        "images": 88,
+        "boxes": 127
+      }
+    }
+  }
+}
