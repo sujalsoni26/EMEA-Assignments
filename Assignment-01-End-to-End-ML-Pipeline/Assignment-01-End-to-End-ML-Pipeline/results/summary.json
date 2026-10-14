@@ -1,0 +1,25 @@
+{
+  "dataset": "UCI Adult (Census Income)",
+  "rows_after_cleaning": 48790,
+  "train_rows": 39032,
+  "test_rows": 9758,
+  "selected_model": "HistGradientBoostingClassifier",
+  "best_params": {
+    "min_samples_leaf": 10,
+    "max_leaf_nodes": 31,
+    "max_iter": 400,
+    "learning_rate": 0.08,
+    "l2_regularization": 5.0
+  },
+  "cv_roc_auc": 0.9281,
+  "decision_threshold": 0.366,
+  "test_metrics": {
+    "Accuracy": 0.8621,
+    "Balanced accuracy": 0.8361,
+    "Precision": 0.6844,
+    "Recall": 0.7864,
+    "F1": 0.7319,
+    "ROC-AUC": 0.9338,
+    "PR-AUC": 0.8428
+  }
+}

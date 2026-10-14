@@ -1,0 +1,4 @@
+,threshold,Accuracy,Balanced accuracy,Precision,Recall,F1,ROC-AUC,PR-AUC
+Majority baseline,,0.7606,0.5,0.0,0.0,0.0,0.5,0.2394
+Tuned HGB @ 0.50,0.5,0.8767,0.8106,0.7749,0.6836,0.7264,0.9338,0.8428
+Tuned HGB @ 0.37 (F1-opt.),0.366,0.8621,0.8361,0.6844,0.7864,0.7319,0.9338,0.8428

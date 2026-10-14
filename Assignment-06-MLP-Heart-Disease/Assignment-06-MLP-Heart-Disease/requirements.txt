@@ -1,0 +1,9 @@
+# Tested with Python 3.12, TensorFlow 2.21.0, Keras 3.15.1, scikit-learn 1.9.1, scipy, pandas 3.0.6, matplotlib 3.11.2
+tensorflow>=2.16
+keras>=3.0
+numpy>=1.26
+pandas>=2.1
+scikit-learn>=1.4
+scipy>=1.10
+matplotlib>=3.8
+jupyter
